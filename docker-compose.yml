@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: pgsql
+    restart: always
+
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: pgsql_db
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - pgsql_data:/var/lib/postgresql/data
+
+volumes:
+  pgsql_data:
